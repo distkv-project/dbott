@@ -21,8 +21,9 @@ class DMaster(object):
         # init monitors
         self._monitors = {}
         for i in range(0, self.init_num_monitors):
-            monitor_actor_handle = DMonitor.remote()
-            self._executors[monitor_actor_handle._ray_actor_id] = monitor_actor_handle
+            repo_name = "dst-project/drpc"
+            monitor_actor_handle = DMonitor.remote(monitor_actor_handle)
+            self._executors[repo_name] = monitor_actor_handle
 
     def start(self):
         pass
